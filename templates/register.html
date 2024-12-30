@@ -1,0 +1,20 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="../static/css/styles.css">
+<title>{% block title %}Register{% endblock %}</title>
+{% endblock %}
+{% block content %}
+
+{% include "header.html" %}
+
+
+<div class="jumbotron text-center">
+    <div class="container">
+     {{ wtf.quick_form(form, novalidate=True) }}
+    </div>
+</div>
+{% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'bootstrap/base.html' %}
+{%import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+{{ super() }}
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../static/css/styles.css">
+<title>{% block title %}Add A New Cafe{% endblock %}</title>
+{% endblock %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+      {% if s %}
+      <h1> Coffee  Successfully Submitted </h1>
+      {% else %}
+      <h1>Add a new cafe into the database</h1>
+      {% endif %}
+      {{ wtf.quick_form(form,novalidate=True) }}
+
+      <!-- This is where your WTForm will go -->
+
+	  <p class="space-above"><a href="{{url_for('home')}}">See All Cafes</a></p>
+
+    </div>
+  </div>
+</div>
+{% include "footer.html" %}
+{% endblock %}
